@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Undefined and Null</title>
+</head>
+<body>
+	<script>
+		// objeto javascript
+		var pessoa = {};
+		pessoa.name = "Wallison";
+		pessoa.age = 22;
+		for(var propriedade in pessoa) {
+			console.log(propriedade);
+		}
+
+		// undefined propriedade não existe
+		// propriedade pode existir
+		pessoa.address;
+		// null valor não existe
+		pessoa.address;
+	</script>
+</body>
+</html>
