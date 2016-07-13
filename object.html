@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Object</title>
+</head>
+<body>
+	<script>
+		// criar objeto vazio
+		var pessoa = {};
+		// exibir tipo de dados
+		typeof pessoa
+		// objeto literal
+		var pessoa = {name: "Wallison Henrique", age: 22};
+		// definir propriedade unidade
+		pessoa.telefone = "9999-9999";
+		// definir propriedade in
+		// usando espaço, palavra reservada, dinâmico
+		pessoa["cor dos olhos"] = "Castanho";
+		// Cannot set property 'street' of undefined
+		// não pode definir propriedade 'street' de 'address = undefined'
+		pessoa.address.street = "Av. Brasília";
+		// criar objeto dentro objeto
+		pessoa.address = {};
+		pessoa.address.street = "Av. Brasília";
+		// definir proprieda in
+		pessoa["address"]["number"] = "999";
+		// exibir propriedade in
+		pessoa["cor dos olhos"];
+		// exibir propriedades com for
+		// utilizar propriedades in
+		for(propriedades in pessoa) {
+			console.log(propriedades + ": " + pessoa[propriedades]);
+		}
+		// não remove propriedade
+		pessoa.idade = undefined;
+		// remover propriedade
+		delete pessoa.idade;
+
+	</script>
+</body>
+</html>
