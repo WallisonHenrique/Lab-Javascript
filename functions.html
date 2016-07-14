@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Functions</title>
+</head>
+<body>
+	<script>
+		// function declaration
+		function soma(a, b) {
+			return a + b;
+		}
+		console.log(soma);
+		console.log(soma(2, 2));
+		// function expression
+		var soma = function(a, b) {
+			return a + b;
+		}
+		console.log(soma);
+		console.log(soma(2, 2));
+		// named function expression
+		var soma = function som(a, b) {
+			return a + b;
+		}
+		console.log(soma);
+		console.log(soma(2, 2));
+		// carregada antes interpretação
+		console.log(soma(2, 2));
+		function soma(a, b) {
+			return a + b;
+		}
+		// retorna is not a function
+		console.log(soma(2, 2));
+		var soma = function(a, b) {
+			return a + b;
+		}
+		// function como parâmetro
+		// reutilidade do código
+		var produtoA = {name: "sapato", preco: 150};
+		var produtoB = {name: "botina", preco: 180};
+		var impostoA = function(preco) {
+			return preco*0.1;
+		}
+		var impostoB = function(preco) {
+			return preco*0.2;
+		}
+		var calcular = function(produto, imposto) {
+			return produto.preco + imposto(produto.preco);
+		}
+		console.log(calcular(produtoA, impostoA));
+		console.log(calcular(produtoA, impostoB));
+		console.log(calcular(produtoB, impostoA));
+		console.log(calcular(produtoB, impostoB));
+		// retorna uma <function>
+		var helloWorld = function () {
+			return function () {
+				return "Hello World!";
+			};
+		}
+		console.log(helloWorld);
+		// invoca function
+		// retorna function interna
+		console.log(helloWorld());
+		// retorna "Hello World!"
+		console.log(helloWorld()());
+		// simular um método
+		// método = objeto pode retorna function
+		var pessoa = {
+			nome: "Wallison",
+			idade: 22,
+			getIdade:function() {
+				return this.idade;
+			}
+		};
+		// exibir propriedade=function
+		console.log(pessoa.getIdade());
+		// retorna idade is not defined
+		// retorna var idade
+		// this = referece escopo function
+		var idade = 23;
+		var pessoa = {
+			nome: "Wallison",
+			idade: 22,
+			getIdade:function() {
+				return idade;
+			}
+		};
+		// function externa
+		var getIdade = function() {
+				return this.idade;
+		};
+		var pessoa = {
+			nome: "Wallison",
+			idade: 22,
+			getIdade: getIdade
+		};
+		// nao escopo global
+		// pertence ao objeto
+		console.log(getIdade());
+		////indicar escopo executar function
+
+		// vários parâmetros
+		console.log(getIdade.call(pessoa,2, 3, 10));
+		// vários parâmetros array
+		console.log(getIdade.apply(pessoa,[3,5,6]));
+		// função fábrica
+		// utilize multiplos objetos
+		// mais indicado->no-new
+		var criarPessoa = function (nome, idade) {
+			return {
+				nome: nome,
+				idade: idade
+			};
+		};
+		console.log(criarPessoa("Wallison",22));
+		console.log(criarPessoa("Henrique",30));
+		// função construtora
+		// utilize multiplos objetos
+		// letra maiúscula por convenção
+		var Pessoa = function (nome, idade) {
+			this.nome = nome;
+			this.idade = idade;
+		};
+		console.log(new Pessoa("Pereira",40));
+		console.log(new Pessoa("Silva",60));
+		// objeto literal com construtor
+		var pedro = {}; // utilize único objeto
+		Pessoa.call(pedro, "Pedro", 20);
+		pedro.telefone = "9999-9999";
+		console.log(pedro);
+		// closure-> não perde referência
+		var helloWorld = function () {
+			var message = "Hello World!";
+			return function () {
+				return message;
+			}
+		}
+		// armazena 2° function
+		var fnHelloWorld = helloWorld();
+		console.log(fnHelloWorld());
+	</script>
+</body>
+</html>
