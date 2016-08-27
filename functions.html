@@ -147,6 +147,27 @@
 	            return texto; // retorna var local
 	        }
 	    }
+
+		// outra forma return function
+		var texto = 'global';
+		var mensagem = function() {
+			return texto;
+		}
+		var message = function() {
+			var texto = 'local';
+			return mensagem;
+		}
+		
+		console.log(message()());
+
+		// var local undefined
+		var mensagem = function() {
+			return texto;
+		}
+		var message = function() {
+			var texto = 'local';
+			return mensagem;
+		}
 	</script>
 </body>
 </html>
