@@ -138,6 +138,15 @@
 		// armazena 2° function
 		var fnHelloWorld = helloWorld();
 		console.log(fnHelloWorld());
+
+		// não precisa this.texto
+		var texto = 'olá';
+	    var message = function() {
+	        var texto = 'hello';
+	        return function() {
+	            return texto; // retorna var local
+	        }
+	    }
 	</script>
 </body>
 </html>
